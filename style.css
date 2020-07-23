@@ -1,0 +1,37 @@
+/* Header */
+header{
+    padding: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header a:link{
+    color: purple;
+}
+
+header a:visited{
+    color:purple
+}
+
+/* Body */
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+body h1{
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    background-color: purple;
+    color: white;
+}
+
+.one{ 
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
+}
