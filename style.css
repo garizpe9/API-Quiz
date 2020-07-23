@@ -23,8 +23,14 @@ body{
 body h1{
     font-weight: bold;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Questions */
+
+container{
+    font-family: Arial, Helvetica, sans-serif;
+}
 button {
     background-color: purple;
     color: white;
@@ -33,5 +39,12 @@ button {
 .one{ 
     font-family: Arial, Helvetica, sans-serif;
 }
-    
+
+p1{
+    color:gray;
+    font-style: italic;
+}
+
+.done{
+    font-family: Arial, Helvetica, sans-serif;
 }
