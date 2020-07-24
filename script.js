@@ -1,9 +1,12 @@
 //dom variables
 var timeKeep = document.getElementById("Timekeep");
+var start = document.getElementById("Start");
+var startScreen = document.getElementById("startScreen");
+var one = document.getElementById("one");
+var right = document.getElementById("right");
+var wrong = document.getElementById("wrong");
 
 //Timer
-console.log(timeKeep.childNodes[0]);
-
 function Timeper(){
     var count = 80
     var Read = setInterval(function(){
@@ -15,4 +18,13 @@ function Timeper(){
         }
     }, 1000);
 }
-Timeper()
+
+//Start Screen Next Question
+function closestart() {
+    startScreen.style.display = "none";
+    one.style.display ="block";
+    Timeper();
+}
+
+//On Click
+start.addEventListener("click", closestart);
