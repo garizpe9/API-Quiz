@@ -24,72 +24,72 @@
         </div>
       </div>    
    </header>
-  
-    <container id="startScreen">
-      <h1>Coding Quiz Challenge</h1>
-      <div class="row">  
-        <div class="col-4"></div>   
-        <div class="col-4">  
-          <p>Try to answer the following questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>          
-          <div class="row"> 
-            <div class="col-4"> </div>
-            <div class="col-4">  
-            <button type="button" class="btn" id="Start">Start Quiz!</button>
+    <div id="Quiz">
+      <container id="startScreen">
+        <h1>Coding Quiz Challenge</h1>
+        <div class="row">  
+          <div class="col-4"></div>   
+          <div class="col-4">  
+            <p>Try to answer the following questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>          
+            <div class="row"> 
+              <div class="col-4"> </div>
+              <div class="col-4">  
+              <button type="button" class="btn" id="Start">Start Quiz!</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </container>
+      </container>
 
-    <Div id = "one" style = "display: none">
-      <h1>Queston </h1>
-      <div class="row">  
-        <div class="col-4">
-        </div>
-        <div class="col-4">   
-          <ul>
-            <button type="button" class="btn" id="wrong">1. Answer</button>  <br><br>
-            <button type="button" class="btn" id="right">2. Answer</button>  <br><br>
-            <button type="button" class="btn" id="wrong">3. Answer</button>  <br><br>
-            <button type="button" class="btn" id="wrong">4. Answer</button>  <br><br>
-          </ul>
-          <div class="row">  
-            <div class="col-3">
-            </div>
-            <div class="col-3">   
-            <button type="button" class="btn" id="options">Go Back</button> 
-            </div>
-            <div class="col-3">
-            <button type="button" class="btn" id="options">Next Question</button><br><br>
-            </div>
+      <Div id = "one" style = "display: none">
+        <h1>Queston </h1>
+        <div class="row">  
+          <div class="col-4">
           </div>
-          <hr>
-            <p1> response1 </p1></hr>
+          <div class="col-4">   
+            <ul>
+              <button type="button" class="btn" id="wrong">1. Answer</button>  <br><br>
+              <button type="button" class="btn" id="right">2. Answer</button>  <br><br>
+              <button type="button" class="btn" id="wrong">3. Answer</button>  <br><br>
+              <button type="button" class="btn" id="wrong">4. Answer</button>  <br><br>
+            </ul>
+            <div class="row">  
+              <div class="col-3">
+              </div>
+              <div class="col-3">   
+              <button type="button" class="btn" id="goBack">Go Back</button> 
+              </div>
+              <div class="col-3">
+              <button type="button" class="btn" id="nextQuestion">Next Question</button><br><br>
+              </div>
+            </div>
+            <hr>
+              <p1> response1 </p1></hr>
 
+          </div>
         </div>
       </div>
-    </div>
 
-    <Div id = "done">
-      <h1>All done! </h1>
-      <div class="row">  
-        <div class="col-4">
+      <Div id = "done" style = "display: none">
+        <h1>All done! </h1>
+        <div class="row">  
+          <div class="col-4">
+          </div>
+          <div class="col-4">   
+            Your final score is <span id="time">Time</span>.
+          </div>
+        </div><br>
+        <div class="row">  
+          <div class="col-4"></div>
+          <div class="col-4">
+            Enter Initials
+            <input type="text" class="form-control">
+          </div>
+          <button type="button" class="btn" id="options">Submit</button>
         </div>
-        <div class="col-4">   
-          Your final score is <span id="time">Time</span>.
-        </div>
-      </div><br>
-      <div class="row">  
-        <div class="col-4"></div>
-        <div class="col-4">
-          Enter Initials
-          <input type="text" class="form-control">
-         </div>
-        <button type="button" class="btn" id="options">Submit</button>
       </div>
-    </div>
-     
-    
+      
+      
 
     
     
@@ -97,8 +97,8 @@
 
  
 
-  
-
-    <script src="script.js"></script>
+      <script src="script.js"></script>
+    </div>
+       
   </body>
 </html>
