@@ -32,7 +32,7 @@ container{
     font-family: Arial, Helvetica, sans-serif;
 }
 button {
-    background-color: purple;
+    background-color: rgb(105, 16, 165);
     color: white;
 }
 
@@ -46,5 +46,14 @@ p1{
 }
 
 #done{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#scores{
+    background-color: lightsteelblue;
+    opacity: 50%;
+}
+
+#seescores{
     font-family: Arial, Helvetica, sans-serif;
 }

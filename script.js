@@ -19,7 +19,9 @@ var right4 = document.getElementById("right4");
 var wrong4 = document.getElementById("wrong4");
 var right5 = document.getElementById("right5");
 var wrong5 = document.getElementById("wrong5");
-var nameel = document.getElementById("nameInput");
+var nameel = document.getElementById("options");
+var score = document.getElementById("score");
+var seescores = document.getElementById("seescores");
 
 
 //Timer
@@ -84,12 +86,22 @@ wrong5.addEventListener("click", nextclick5)
 //       shoppingCartEl.append(item);
 //     }
 //   });
-
-
+function displayMessage(type, message) {
+    score.textContent = message;
+    score.setAttribute("class", type);
+}
 //local storage
 nameel.addEventListener("click", function(event){
     event.preventDefault();
     var nameels = document.getElementById("nameInput").value;
-    localStorage.setItem("Initials", nameels);
+    if (nameels === "") {
+        displayMessage("error", "Initials cannot be blank");
+        }
+    else 
+        localStorage.setItem("Initials", nameels);
+        done.style.display = "none";
+        seescores.style.display = "block";
+
 });
-//highscores
+
+// highscore
