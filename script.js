@@ -3,12 +3,24 @@ var timeKeep = document.getElementById("Timekeep");
 var start = document.getElementById("Start");
 var startScreen = document.getElementById("startScreen");
 var one = document.getElementById("one");
-var right = document.getElementById("right");
-var wrong = document.getElementById("wrong");
+var two = document.getElementById("two");
+var three = document.getElementById("three");
+var four = document.getElementById("four");
+var five = document.getElementById("five");
+var right1 = document.getElementById("right1");
+var wrong1 = document.getElementById("wrong1");
 var quiz= document.getElementById("Quiz");
-var back = document.getElementById ("goBack");
-var next = document.getElementById ("nextQuestion");
 var done = document.getElementById ("done");
+var right2 = document.getElementById("right2");
+var wrong2 = document.getElementById("wrong2");
+var right3 = document.getElementById("right3");
+var wrong3 = document.getElementById("wrong3");
+var right4 = document.getElementById("right4");
+var wrong4 = document.getElementById("wrong4");
+var right5 = document.getElementById("right5");
+var wrong5 = document.getElementById("wrong5");
+var nameel = document.getElementById("nameInput");
+
 
 //Timer
 function Timeper(){
@@ -23,25 +35,61 @@ function Timeper(){
     }, 1000);
 }
 
-//Start Screen Next Question
+//button functions
 function closestart() {
     startScreen.style.display = "none";
     one.style.display ="block";
     Timeper();
 }
-
-function nextclick() {
+function nextclick1() {
     one.style.display = "none";
-    done.style.display = "block";
-
+    two.style.display = "block";
 }
-
-function backclick() {
-    one.style.display = "none";
-    startScreen.style.display = "block";
+function nextclick2() {
+    two.style.display = "none";
+    three.style.display = "block";
+}
+function nextclick3() {
+    three.style.display = "none";
+    four.style.display = "block";
+}
+function nextclick4() {
+    four.style.display = "none";
+    five.style.display = "block";
+}
+function nextclick5() {
+    five.style.display = "none";
+    done.style.display = "block";
 }
 
 //On Click
 start.addEventListener("click", closestart)
-next.addEventListener("click", nextclick)
-back.addEventListener("click", backclick)
+right1.addEventListener("click", nextclick1)
+wrong1.addEventListener("click", nextclick1)
+right2.addEventListener("click", nextclick2)
+wrong2.addEventListener("click", nextclick2)
+right3.addEventListener("click", nextclick3)
+wrong3.addEventListener("click", nextclick3)
+right4.addEventListener("click", nextclick4)
+wrong4.addEventListener("click", nextclick4)
+right5.addEventListener("click", nextclick5)
+wrong5.addEventListener("click", nextclick5)
+
+// look at this for breveity:
+// listEl.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     if(event.target.matches("button")) {
+//       var item = document.createElement("div");
+//       item.textContent = groceries[event.target.parentElement.id];
+//       shoppingCartEl.append(item);
+//     }
+//   });
+
+
+//local storage
+nameel.addEventListener("click", function(event){
+    event.preventDefault();
+    var nameels = document.getElementById("nameInput").value;
+    localStorage.setItem("Initials", nameels);
+});
+//highscores
