@@ -22,6 +22,7 @@ var wrong5 = document.getElementById("wrong5");
 var nameel = document.getElementById("options");
 var score = document.getElementById("score");
 var seescores = document.getElementById("seescores");
+var response = document.querySelector("p1");
 
 
 //Timer
@@ -37,6 +38,20 @@ function Timeper(){
     }, 1000);
 }
 
+
+function timesout(){
+    setTimeout(function(){
+    console.log 
+    //response = response.textContent;
+    ("Hello");
+    }, .5);
+    setTimeout(function(){
+    console.log 
+    //response = response.textContent;
+    ("Erase");
+    }, 2000);
+}
+
 //button functions
 function closestart() {
     startScreen.style.display = "none";
@@ -46,22 +61,28 @@ function closestart() {
 function nextclick1() {
     one.style.display = "none";
     two.style.display = "block";
+     
+
 }
 function nextclick2() {
     two.style.display = "none";
     three.style.display = "block";
+    timesout()
 }
 function nextclick3() {
     three.style.display = "none";
     four.style.display = "block";
+    timesout()
 }
 function nextclick4() {
     four.style.display = "none";
     five.style.display = "block";
+    timesout()
 }
 function nextclick5() {
     five.style.display = "none";
     done.style.display = "block";
+    timesout()
 }
 
 //On Click
@@ -103,5 +124,3 @@ nameel.addEventListener("click", function(event){
         seescores.style.display = "block";
 
 });
-
-// highscore
