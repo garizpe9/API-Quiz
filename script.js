@@ -2,27 +2,27 @@
 var timeKeep = document.getElementById("Timekeep");
 var start = document.getElementById("Start");
 var startScreen = document.getElementById("startScreen");
-var one = document.getElementById("one");
-var two = document.getElementById("two");
-var three = document.getElementById("three");
-var four = document.getElementById("four");
-var five = document.getElementById("five");
-var right1 = document.getElementById("right1");
-var wrong1 = document.getElementById("wrong1");
+// var one = document.getElementById("one");
+// var two = document.getElementById("two");
+// var three = document.getElementById("three");
+// var four = document.getElementById("four");
+// var five = document.getElementById("five");
+// var right1 = document.getElementById("right1");
+// var wrong1 = document.getElementById("wrong1");
 var quiz= document.getElementById("Quiz");
 var done = document.getElementById ("done");
-var right2 = document.getElementById("right2");
-var wrong2 = document.getElementById("wrong2");
-var right3 = document.getElementById("right3");
-var wrong3 = document.getElementById("wrong3");
-var right4 = document.getElementById("right4");
-var wrong4 = document.getElementById("wrong4");
-var right5 = document.getElementById("right5");
-var wrong5 = document.getElementById("wrong5");
-var nameel = document.getElementById("options");
+// var right2 = document.getElementById("right2");
+// var wrong2 = document.getElementById("wrong2");
+// var right3 = document.getElementById("right3");
+// var wrong3 = document.getElementById("wrong3");
+// var right4 = document.getElementById("right4");
+// var wrong4 = document.getElementById("wrong4");
+// var right5 = document.getElementById("right5");
+// var wrong5 = document.getElementById("wrong5");
+// var nameel = document.getElementById("options");
 var score = document.getElementById("score");
 var seescores = document.getElementById("seescores");
-
+var questionsArea = document.querySelector("#questions-space");
 var elementsArea = document.querySelector("#answers-space");
 var questionsArea = document.querySelector("#questions-space");
 var Read;
@@ -40,21 +40,97 @@ var questions = [
         question: "Question 1",
         answers: [ 
             {
-            text: "A",
-            isCorrect: false
+                text: "A",
+                isCorrect: false
+            },
+            {
+                text: "B",
+                isCorrect: true
+            },
+            {
+                text: "C",
+                isCorrect: false
+            },
+            {
+                text: "C",
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        question: "Question 2",
+        answers: [ 
+            {
+                text: "Y",
+                isCorrect: false
+            },
+            {
+                text: "Z",
+                isCorrect: true
+            },
+            {
+                text: "X",
+                isCorrect: false
+            },
+            {
+                text: "P",
+                isCorrect: false
             }
         ]
     }
 ]
 
 //question loop
-var questionElement = questions [0];
-questionsArea.textContent = questionElement.question
 
-var abutton = document.createElement("button");
-varanswerElement = questionElement.answers[0].text;
-abutton.textContent = varanswerElement;
-elementsArea.appendChild(abutton);
+function startGame(){
+    
+    function okay(){                    //testing also increase in number in theory
+        alert("OK dan");
+        number+1;
+    }    
+    
+    var questionno = document.createElement ("h1"); 
+    questionno.textContent = questions[number].question;
+    questionsArea.appendChild(questionno);     
+    for(i = 0; i < questions[number].answers.length; i++) {
+        var abutton = document.createElement("button"); //creates button format
+        var breakline = document.createElement ("ul") //format
+        varanswerElement = questions[number].answers[i].text; //pulling object for button from array
+        abutton.textContent = varanswerElement; //placing object text
+        elementsArea.appendChild(abutton); //repeats
+        elementsArea.appendChild(breakline); //repeats
+        abutton.addEventListener("click", okay);
+        elementsArea.appendChild(abutton);
+    
+            // //var answer = document.createElement("p");
+            // answer.addEventListener("click", function(){
+            //     if(!questionElement.answers[i].isCorrect){
+            //         seconds -= 10;
+            //         alert("Incorrect")
+            //     }
+            //     else{
+            //         alert("Correct")
+            //     }
+            //     number++;
+            // })
+    }     
+    
+
+}
+
+startGame()
+
+
+  
+
+
+
+
+
+
+
+
+
 
 
 
