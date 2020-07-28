@@ -19,7 +19,7 @@ var done = document.getElementById ("done");
 // var wrong4 = document.getElementById("wrong4");
 // var right5 = document.getElementById("right5");
 // var wrong5 = document.getElementById("wrong5");
-// var nameel = document.getElementById("options");
+var nameel = document.getElementById("options");
 var score = document.getElementById("score");
 var seescores = document.getElementById("seescores");
 var questionsArea = document.querySelector("#questions-space");
@@ -52,7 +52,7 @@ var questions = [
                 isCorrect: false
             },
             {
-                text: "C",
+                text: "D",
                 isCorrect: false
             }
         ]
@@ -82,17 +82,30 @@ var questions = [
 
 //question loop
 
+function okay(){ 
+    for(i = 0; i < questions[number].answers.length; i++){
+        elementsArea.removeChild(elementsArea.childNodes[0]);
+        elementsArea.removeChild(elementsArea.childNodes[0]);
+    }
+
+    number++                   
+    alert(number);
+    questionsArea.removeChild(questionsArea.childNodes[0]);
+    startGame()
+
+}   
+
 function startGame(){
-    
-    function okay(){                    //testing also increase in number in theory
-        alert("OK dan");
-        number+1;
-    }    
-    
+
     var questionno = document.createElement ("h1"); 
     questionno.textContent = questions[number].question;
-    questionsArea.appendChild(questionno);     
-    for(i = 0; i < questions[number].answers.length; i++) {
+    questionsArea.appendChild(questionno);
+    playgame();
+}
+
+function playgame(){
+    for(i = 0; i < questions[number].answers.length; i++) { //loop questions
+
         var abutton = document.createElement("button"); //creates button format
         var breakline = document.createElement ("ul") //format
         varanswerElement = questions[number].answers[i].text; //pulling object for button from array
@@ -100,8 +113,7 @@ function startGame(){
         elementsArea.appendChild(abutton); //repeats
         elementsArea.appendChild(breakline); //repeats
         abutton.addEventListener("click", okay);
-        elementsArea.appendChild(abutton);
-    
+
             // //var answer = document.createElement("p");
             // answer.addEventListener("click", function(){
             //     if(!questionElement.answers[i].isCorrect){
@@ -114,26 +126,10 @@ function startGame(){
             //     number++;
             // })
     }     
-    
+
 
 }
-
 startGame()
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Timer
@@ -164,11 +160,11 @@ function timesout(){
 }
 
 // //button functions
-// function closestart() {
-//     startScreen.style.display = "none";
-//     one.style.display ="block";
-//     Timeper();
-// }
+function closestart() {
+    startScreen.style.display = "none";
+    one.style.display ="block";
+    Timeper();
+}
 // function nextclick1() {
 //     one.style.display = "none";
 //     two.style.display = "block";
@@ -196,7 +192,8 @@ function timesout(){
 // }
 
 // //On Click
-// start.addEventListener("click", closestart)
+start.addEventListener("click", closestart)
+
 // right1.addEventListener("click", nextclick1)
 // wrong1.addEventListener("click", nextclick1)
 // right2.addEventListener("click", nextclick2)
@@ -217,21 +214,21 @@ function timesout(){
 // //       shoppingCartEl.append(item);
 // //     }
 // //   });
-// function displayMessage(type, message) {
-//     score.textContent = message;
-//     score.setAttribute("class", type);
-// }
+function displayMessage(type, message) {
+    score.textContent = message;
+    score.setAttribute("class", type);
+}
 
-// //local storage
-// nameel.addEventListener("click", function(event){
-//     event.preventDefault();
-//     var nameels = document.getElementById("nameInput").value;
-//     if (nameels === "") {
-//         displayMessage("error", "Initials cannot be blank");
-//         }
-//     else 
-//         localStorage.setItem("Initials", nameels);
-//         done.style.display = "none";
-//         seescores.style.display = "block";
+//local storage
+nameel.addEventListener("click", function(event){
+    event.preventDefault();
+    var nameels = document.getElementById("nameInput").value;
+    if (nameels === "") {
+        displayMessage("error", "Initials cannot be blank");
+        }
+    else 
+        localStorage.setItem("Initials", nameels);
+        done.style.display = "none";
+        seescores.style.display = "block";
 
-// });
+});
