@@ -2,101 +2,162 @@
 var timeKeep = document.getElementById("Timekeep");
 var start = document.getElementById("Start");
 var startScreen = document.getElementById("startScreen");
-// var one = document.getElementById("one");
-// var two = document.getElementById("two");
-// var three = document.getElementById("three");
-// var four = document.getElementById("four");
-// var five = document.getElementById("five");
-// var right1 = document.getElementById("right1");
-// var wrong1 = document.getElementById("wrong1");
 var quiz= document.getElementById("Quiz");
 var done = document.getElementById ("done");
-// var right2 = document.getElementById("right2");
-// var wrong2 = document.getElementById("wrong2");
-// var right3 = document.getElementById("right3");
-// var wrong3 = document.getElementById("wrong3");
-// var right4 = document.getElementById("right4");
-// var wrong4 = document.getElementById("wrong4");
-// var right5 = document.getElementById("right5");
-// var wrong5 = document.getElementById("wrong5");
+var score = document.getElementById ("score");
+var one = document.getElementById ("one");
 var nameel = document.getElementById("options");
 var score = document.getElementById("score");
+var scores = document.getElementById("scorecard");
+var clear = document.getElementById("Clear");
 var seescores = document.getElementById("seescores");
 var questionsArea = document.querySelector("#questions-space");
 var elementsArea = document.querySelector("#answers-space");
 var questionsArea = document.querySelector("#questions-space");
+var highscore = document.querySelector("a");
+var header = document.getElementById("header");
 var Read;
 var count = 80
 var time = document.getElementById("time");
 var number = 0
-
-
-//buttons
+var retake = document.getElementById("Retake");
+var body = document.querySelector("body");
 
 //questions layout
 
 var questions = [
     {
-        question: "Question 1",
+        question: "Commonly used data types DO NOT include:",
         answers: [ 
             {
-                text: "A",
+                text: "1. strings",
                 isCorrect: false
             },
             {
-                text: "B",
+                text: "2. booleans",
+                isCorrect: false
+            },
+            {
+                text: "3. alerts",
+                isCorrect: false
+            },
+            {
+                text: "4. numbers",
                 isCorrect: true
-            },
-            {
-                text: "C",
-                isCorrect: false
-            },
-            {
-                text: "D",
-                isCorrect: false
             }
         ]
     },
     {
-        question: "Question 2",
+        question: "The condition in an if/else statement is enclosed is enclosed within ___",
         answers: [ 
             {
-                text: "Y",
+                text: "1. quotes",
                 isCorrect: false
             },
             {
-                text: "Z",
+                text: "2. curly brackets",
+                isCorrect: false
+            },
+            {
+                text: "3. parentheses",
                 isCorrect: true
             },
             {
-                text: "X",
+                text: "4. square brackets",
+                isCorrect: false
+            }
+
+            
+        ]
+    },
+    {
+        question: "Arrays in JavaScript can be used to store:",
+        answers: [ 
+            {
+                text: "1. numbers and strings ",
                 isCorrect: false
             },
             {
-                text: "P",
+                text: "2. other arrays",
+                isCorrect: false
+            },
+            {
+                text: "3. booleans",
+                isCorrect: false
+            },
+            {
+                text: "4. all of the above",
+                isCorrect: true
+            }
+
+            
+        ]
+    },
+    {
+        question: "String values must be enclosed within ___ when being assigned to variables. ",
+        answers: [ 
+            {
+                text: "1.commas",
+                isCorrect: false
+            },
+            {
+                text: "2. curly brackets",
+                isCorrect: true
+            },
+            {
+                text: "3. quotes",
+                isCorrect: false
+            },
+            {
+                text: "4. prantheses",
                 isCorrect: false
             }
+
+            
+        ]
+    },
+    {
+        question: "A very usefule tool used during development and debugging for printing content to the debuger is: ",
+        answers: [ 
+            {
+                text: "1. JavaScript",
+                isCorrect: false
+            },
+            {
+                text: "2. terminal/bash",
+                isCorrect: false
+            },
+            {
+                text: "3. for loops",
+                isCorrect: false
+            },
+            {
+                text: "4. console.log",
+                isCorrect: true
+            }
+
+            
         ]
     }
 ]
 
 //question loop
 
-function okay(){ 
+function okay(){ //remove children
     for(i = 0; i < questions[number].answers.length; i++){
         elementsArea.removeChild(elementsArea.childNodes[0]);
         elementsArea.removeChild(elementsArea.childNodes[0]);
     }
-
-    number++                   
-    alert(number);
-    questionsArea.removeChild(questionsArea.childNodes[0]);
-    startGame()
-
+    number++;      
+    if (number<questions.length){   
+        questionsArea.removeChild(questionsArea.childNodes[0]);
+        startGame()
+    }
+    else 
+        nextclick5();
 }   
 
-function startGame(){
-
+function startGame(){ //create questions answers
     var questionno = document.createElement ("h1"); 
     questionno.textContent = questions[number].question;
     questionsArea.appendChild(questionno);
@@ -112,25 +173,19 @@ function playgame(){
         abutton.textContent = varanswerElement; //placing object text
         elementsArea.appendChild(abutton); //repeats
         elementsArea.appendChild(breakline); //repeats
-        abutton.addEventListener("click", okay);
-
-            // //var answer = document.createElement("p");
-            // answer.addEventListener("click", function(){
-            //     if(!questionElement.answers[i].isCorrect){
-            //         seconds -= 10;
-            //         alert("Incorrect")
-            //     }
-            //     else{
-            //         alert("Correct")
-            //     }
-            //     number++;
-            // })
+        abutton.addEventListener("click", okay)
+        //console.log (questions[number].answer[this])
+            // if (questions[number].answers[i].isCorrect !==true){
+            //     count -10;
+            //     console.log("cool")
+            //     okay()  
+            // }    
+            // else 
+            //  okay()
     }     
-
 
 }
 startGame()
-
 
 //Timer
 function Timeper(){
@@ -149,86 +204,92 @@ function Timestop(){
     time.textContent = count   
 }
 
-function timesout(){
-    setTimeout(function(){
-    response("response","Hello")
-    }, .5);
-    setTimeout(function(){
-    console.log 
-    ("Erase");
-    }, 2000);
-}
+// function timesout(){
+    
+//     setTimeout(function(){
+//     response("response","Hello")
+//     }, .5);
+//     setTimeout(function(){
+//     console.log 
+//     ("Erase");
+//     }, 2000);
+// }
 
 // //button functions
+
 function closestart() {
     startScreen.style.display = "none";
     one.style.display ="block";
     Timeper();
 }
-// function nextclick1() {
-//     one.style.display = "none";
-//     two.style.display = "block";
-     
-// }
-// function nextclick2() {
-//     two.style.display = "none";
-//     three.style.display = "block";
-    
-// }
-// function nextclick3() {
-//     three.style.display = "none";
-//     four.style.display = "block";
-    
-// }
-// function nextclick4() {
-//     four.style.display = "none";
-//     five.style.display = "block";
-    
-// }
-// function nextclick5() {
-//     five.style.display = "none";
-//     done.style.display = "block";
-//     Timestop()
-// }
+
+//fucntion clicks }
+function nextclick5() {
+    one.style.display = "none";
+    done.style.display = "block";
+    Timestop()
+}
+
+function redo() { ///restart game
+    seescores.style.display = "none";
+    startScreen.style.display = "block";
+    header.style.display = "block";
+    questionsArea.removeChild(questionsArea.childNodes[0]);
+    number=0;
+    count=80;
+    startGame()
+}
+
+function shoops(){ //format
+    disapeer()
+    seescores.style.display= "block";  
+}
+
+function disapeer() { //format
+    body.style.display = "none"  
+}
+
 
 // //On Click
 start.addEventListener("click", closestart)
+retake.addEventListener("click", redo)
+highscore.addEventListener("click", shoops)
+clear.addEventListener("click", remove)
 
-// right1.addEventListener("click", nextclick1)
-// wrong1.addEventListener("click", nextclick1)
-// right2.addEventListener("click", nextclick2)
-// wrong2.addEventListener("click", nextclick2)
-// right3.addEventListener("click", nextclick3)
-// wrong3.addEventListener("click", nextclick3)
-// right4.addEventListener("click", nextclick4)
-// wrong4.addEventListener("click", nextclick4)
-// right5.addEventListener("click", nextclick5)
-// wrong5.addEventListener("click", nextclick5)
 
-// // look at this for breveity:
-// // listEl.addEventListener("click", function(event) {
-// //     event.preventDefault();
-// //     if(event.target.matches("button")) {
-// //       var item = document.createElement("div");
-// //       item.textContent = groceries[event.target.parentElement.id];
-// //       shoppingCartEl.append(item);
-// //     }
-// //   });
+//local storage
 function displayMessage(type, message) {
     score.textContent = message;
     score.setAttribute("class", type);
 }
 
-//local storage
 nameel.addEventListener("click", function(event){
     event.preventDefault();
     var nameels = document.getElementById("nameInput").value;
-    if (nameels === "") {
-        displayMessage("error", "Initials cannot be blank");
-        }
-    else 
+    if (nameels !== "") {
         localStorage.setItem("Initials", nameels);
-        done.style.display = "none";
+        localStorage.setItem("Time", time.textContent)
+        done.style.display = "none"; 
         seescores.style.display = "block";
+        header.style.display = "none"
+        renderLastRegistered()
+    }   
+    else (nameels !== "")
+        displayMessage("score", "Initials cannot be blank");          
+    
+})
 
-});
+function renderLastRegistered() {
+    var email = localStorage.getItem("Initials");
+    var password = localStorage.getItem("Time");  
+    scores.textContent = email + " : " + password
+    
+}
+
+function remove() {
+    var email = localStorage.getItem("Initials");
+    var password = localStorage.getItem("Time");
+    localStorage.removeItem("Initials");
+    localStorage.removeItem("Time");  
+    scores.removeChild(scores.childNodes[0]);
+}
