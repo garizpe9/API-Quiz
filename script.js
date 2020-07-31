@@ -144,6 +144,7 @@ var questions = [
 //question loop
 
 function okay(){ //remove children
+    //console.log()
     for(i = 0; i < questions[number].answers.length; i++){
         elementsArea.removeChild(elementsArea.childNodes[0]);
         elementsArea.removeChild(elementsArea.childNodes[0]);
@@ -174,7 +175,7 @@ function playgame(){
         elementsArea.appendChild(abutton); //repeats
         elementsArea.appendChild(breakline); //repeats
         abutton.addEventListener("click", okay)
-        //console.log (questions[number].answer[this])
+            
             // if (questions[number].answers[i].isCorrect !==true){
             //     count -10;
             //     console.log("cool")
@@ -241,14 +242,16 @@ function redo() { ///restart game
 }
 
 function shoops(){ //format
-    disapeer()
-    seescores.style.display= "block";  
+    questionsArea.removeChild(questionsArea.childNodes[0]);
+    startScreen.style.display = "none";
+    seescores.style.display = "block";
+    done.style.display = "none";
+    one.style.display = "none";
+    var email = localStorage.getItem("Initials");
+    var password = localStorage.getItem("Time");  
+    scores.textContent = email + " : " + password  
+   
 }
-
-function disapeer() { //format
-    body.style.display = "none"  
-}
-
 
 // //On Click
 start.addEventListener("click", closestart)
@@ -282,8 +285,7 @@ nameel.addEventListener("click", function(event){
 function renderLastRegistered() {
     var email = localStorage.getItem("Initials");
     var password = localStorage.getItem("Time");  
-    scores.textContent = email + " : " + password
-    
+    scores.textContent = email + " : " + password   
 }
 
 function remove() {
