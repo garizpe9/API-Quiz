@@ -17,7 +17,7 @@ var questionsArea = document.querySelector("#questions-space");
 var highscore = document.querySelector("a");
 var header = document.getElementById("header");
 var Read;
-var count = 1
+var count = 80
 var time = document.getElementById("time");
 var number = 0
 var retake = document.getElementById("Retake");
@@ -147,8 +147,8 @@ var questions = [
 //question loop
 
 function okay(){ //remove children and minus ten of incorrect alerts
-    console.log(event.target.innerText)
-    console.log(questions[number].answers)
+    //console.log(event.target.innerText)
+    //console.log(questions[number].answers)
     for(i = 0; i < questions[number].answers.length; i++){
         if (event.target.innerText === questions[number].answers[i].text){
             if (questions[number].answers[i].isCorrect ===false){
@@ -272,6 +272,7 @@ nameel.addEventListener("click", function(event){
         done.style.display = "none"; 
         seescores.style.display = "block";
         header.style.display = "none"
+        console.log(event.target.previousSibling.previousElementSibling.firstElementChild.value)
         renderLastRegistered()
     }   
     else (nameels !== "")
