@@ -17,11 +17,14 @@ var questionsArea = document.querySelector("#questions-space");
 var highscore = document.querySelector("a");
 var header = document.getElementById("header");
 var Read;
-var count = 80
+var count = 1
 var time = document.getElementById("time");
 var number = 0
 var retake = document.getElementById("Retake");
 var body = document.querySelector("body");
+var buttonanswer = document.querySelectorAll(".btn_answers")
+var form = document.querySelectorAll(".form-control")
+
 
 //questions layout
 
@@ -143,9 +146,18 @@ var questions = [
 
 //question loop
 
-function okay(){ //remove children
-    //console.log()
+function okay(){ //remove children and minus ten of incorrect alerts
+    console.log(event.target.innerText)
+    console.log(questions[number].answers)
     for(i = 0; i < questions[number].answers.length; i++){
+        if (event.target.innerText === questions[number].answers[i].text){
+            if (questions[number].answers[i].isCorrect ===false){
+                alert("Incorrect!")
+               count = count - 10
+            }
+            else 
+                alert("Correct!")
+        }
         elementsArea.removeChild(elementsArea.childNodes[0]);
         elementsArea.removeChild(elementsArea.childNodes[0]);
     }
@@ -169,20 +181,13 @@ function playgame(){
     for(i = 0; i < questions[number].answers.length; i++) { //loop questions
 
         var abutton = document.createElement("button"); //creates button format
+        abutton.setAttribute ("class", "btn_answers");
         var breakline = document.createElement ("ul") //format
         varanswerElement = questions[number].answers[i].text; //pulling object for button from array
         abutton.textContent = varanswerElement; //placing object text
         elementsArea.appendChild(abutton); //repeats
         elementsArea.appendChild(breakline); //repeats
         abutton.addEventListener("click", okay)
-            
-            // if (questions[number].answers[i].isCorrect !==true){
-            //     count -10;
-            //     console.log("cool")
-            //     okay()  
-            // }    
-            // else 
-            //  okay()
     }     
 
 }
@@ -196,6 +201,10 @@ function Timeper(){
         count --;
         if (count<0){
             clearInterval(Read);
+            elementsArea.removeChild(elementsArea.childNodes[0]);
+            elementsArea.removeChild(elementsArea.childNodes[0]);
+            one.style.display = "none";
+            done.style.display = "block";
         }
     }, 1000);
 }
@@ -204,17 +213,6 @@ function Timestop(){
     clearInterval(Read)
     time.textContent = count   
 }
-
-// function timesout(){
-    
-//     setTimeout(function(){
-//     response("response","Hello")
-//     }, .5);
-//     setTimeout(function(){
-//     console.log 
-//     ("Erase");
-//     }, 2000);
-// }
 
 // //button functions
 
@@ -271,7 +269,6 @@ nameel.addEventListener("click", function(event){
     var nameels = document.getElementById("nameInput").value;
     if (nameels !== "") {
         localStorage.setItem("Initials", nameels);
-        localStorage.setItem("Time", time.textContent)
         done.style.display = "none"; 
         seescores.style.display = "block";
         header.style.display = "none"
@@ -295,3 +292,6 @@ function remove() {
     localStorage.removeItem("Time");  
     scores.removeChild(scores.childNodes[0]);
 }
+
+//local storage needs work: can't have initials and time - leverage homework 5 so that
+//key = initials value=score then highscore board will grab info
